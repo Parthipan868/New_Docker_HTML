@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tamil Nadu Famous Places</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6ff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .places {
+            margin-top: 30px;
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🏝️ Famous Places in Tamil Nadu</h1>
+
+    <select id="districtSelect" onchange="showPlaces()">
+        <option value="">-- Select District --</option>
+        <option value="chennai">Chennai</option>
+        <option value="coimbatore">Coimbatore</option>
+        <option value="madurai">Madurai</option>
+        <option value="trichy">Tiruchirappalli</option>
+        <option value="thanjavur">Thanjavur</option>
+        <option value="salem">Salem</option>
+        <option value="erode">Erode</option>
+        <option value="vellore">Vellore</option>
+        <option value="kanyakumari">Kanyakumari</option>
+        <option value="tirunelveli">Tirunelveli</option>
+    </select>
+
+    <div class="places" id="placesBox" style="display:none;">
+        <h3>Famous Places:</h3>
+        <ul id="placesList"></ul>
+    </div>
+    <script>
+        const districtPlaces = {
+            chennai: [
+                "Marina Beach",
+                "Kapaleeshwarar Temple",
+                "Fort St. George",
+                "Santhome Church",
+                "Valluvar Kottam"
+            ],
+            coimbatore: [
+                "Marudhamalai Temple",
+                "VOC Park",
+                "Siruvani Waterfalls",
+                "Isha Yoga Center",
+                "Black Thunder"
+            ],
+            madurai: [
+                "Meenakshi Amman Temple",
+                "Thirumalai Nayakkar Palace",
+                "Gandhi Memorial Museum",
+                "Alagar Kovil",
+                "Vandiyur Mariamman Teppakulam"
+            ],
+            trichy: [
+                "Rockfort Temple",
+                "Srirangam Ranganathaswamy Temple",
+                "Kallanai Dam",
+                "St. Joseph’s Church",
+                "Butterfly Park"
+            ],
+            thanjavur: [
+                "Brihadeeswarar Temple",
+                "Saraswathi Mahal Library",
+                "Gangaikonda Cholapuram",
+                "Schwartz Church",
+                "Thanjavur Palace"
+            ],
+            salem: [
+                "Yercaud",
+                "Kiliyur Falls",
+                "Mettur Dam",
+                "Pagoda Point",
+                "Kurumbapatti Zoo"
+            ],
+            erode: [
+                "Bhavani Sangameswarar Temple",
+                "Chennimalai Murugan Temple",
+                "Vellode Bird Sanctuary",
+                "Kodiveri Dam",
+                "Bhavani River"
+            ],
+            vellore: [
+                "Vellore Fort",
+                "Golden Temple (Sripuram)",
+                "Amirthi Zoological Park",
+                "Yelagiri Hills",
+                "Jalakandeswarar Temple"
+            ],
+            kanyakumari: [
+                "Vivekananda Rock Memorial",
+                "Thiruvalluvar Statue",
+                "Kanyakumari Beach",
+                "Sunset Point",
+                "Gandhi Memorial"
+            ],
+            tirunelveli: [
+                "Nellaiappar Temple",
+                "Courtallam Falls",
+                "Agasthiyar Falls",
+                "Manimuthar Dam",
+                "Kalakad Wildlife Sanctuary"
+            ]
+        };
+
+        function showPlaces() {
+            const district = document.getElementById("districtSelect").value;
+            const placesBox = document.getElementById("placesBox");
+            const placesList = document.getElementById("placesList");
+
+            placesList.innerHTML = "";
+
+            if (district === "") {
+                placesBox.style.display = "none";
+                return;
+            }
+
+            districtPlaces[district].forEach(place => {
+                const li = document.createElement("li");
+                li.textContent = place;
+                placesList.appendChild(li);
+            });
+
+            placesBox.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- CI trigger -->
